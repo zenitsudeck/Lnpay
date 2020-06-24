@@ -62,8 +62,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 ('waka_ ...', 'waki_ ...', 'wakr_ ...', 'wal_ ...')
 >>>
 >>> Wallet.importkeys(('waka_ ...', 'waki_ ...', 'wakr_ ...', 'wal_ ...'))
+('waka_ ...', 'waki_ ...', 'wakr_ ...', 'wal_ ...')
 >>>
 >>> Wallet.importkeys({'blabla1' : 'waka_ ...', 'blabla2' : 'waki_ ...', 'blabla3' : 'wakr_ ...', 'blabla4' , 'wal_ ...'})
+('waka_ ...', 'waki_ ...', 'wakr_ ...', 'wal_ ...')
+>>>
 ```
 
 - Returns info about the wallet, including balance
