@@ -98,7 +98,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 - Transfer satoshis from source wallet to destination wallet.
 
 ```python
->>> Wallet.transfer(dest_wallet_id, amount, memo='Transferring to another account.', passthru={'in' : 'Me', 'to' : 'Maria.'}):
+>>> Wallet.transfer('wal_ ...', 1, memo='Transferring to another account.', passthru={'in' : 'Me', 'to' : 'Maria.'}):
 {"wtx_transfer_in": { ... } ...}
 ```
 
