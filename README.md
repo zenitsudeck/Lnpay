@@ -116,8 +116,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 - Get Invoice Status.
 
 ```python
->>> Node = Lnpay.Lntx()
->>> Node.status('lntx_82yve ...')
+>>> Lntx = Lnpay.Lntx()
+>>> Lntx.status('lntx_82yve ...')
 {"id" : "lntx_82yveCX2Wn0EkkdyzvyBv", "created_at" : 1577657602, "updated_at" : 1577657602 ...}
 
 ```
