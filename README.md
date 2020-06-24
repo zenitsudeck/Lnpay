@@ -93,9 +93,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ```python
 >>> Wallet.payinvoice('lnbc....', passthru={'message' : 'payment to Aunt Maria.'})
-
 {"id": "wtx_dYeWXmMTrP1VH8XZMOhXdE1", ...}
-
 ```
 
 - Transfer satoshis from source wallet to destination wallet.
@@ -109,11 +107,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ```python
 >>> lnurlwithdraw(50000, passthru={'message' : 'I need to withdraw to buy vegetables.'}, memo='Withdrawing my dear money.'):
-
-{
-    "lnurl":"LNURL ... VGhlcmUncyBub3RoaW5nIGhlcmUgOik="
-    "ott":"Y4J9"
-}
+{"lnurl":"LNURL ... VGhlcmUncyBub3RoaW5nIGhlcmUgOik=", "ott":"Y241"}
 >>> # Do not read what is in base64 :(
 ```
 
