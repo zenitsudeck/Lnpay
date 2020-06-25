@@ -141,14 +141,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 These rules control the short link functionality. They work by using a cookie to keep track of the user. 
 Example: if a user pays a paywall with 6_HR, whenever they click on the paywall link - they are redirected to the destination automatically until after 6 Hours from original purchase time. At that point they are presented with the paywall again.
 
-| Link Expiry | Description |
-| : ------------- : | : ------------- :|
-|IMMEDIATE| Payer must pay every time
-|6_HR| Payer has access for 6 hours|
-|1_D| Payer has access for 1 Day|
-|30_D| Payer has access for 30 Days|
-|90_D| Payer has access for 90 Days|
-|ONE_TIME_USE| Once the link is paid one time by anyone, it is no longer valid for anyone|
+| Link Expiry     | Description     |
+| :-------------: | :-------------: |
+| IMMEDIATE       | Payer must pay every time    |
+| 6_HR            | Payer has access for 6 hours |
+| 1_D             | Payer has access for 1 Day   |
+| 30_D            | Payer has access for 30 Days |
+| 90_D            | Payer has access for 90 Days |
+| ONE_TIME_USE    | Once the link is paid one time by anyone, it is no longer valid for anyone| 
 
 #### Node
 
@@ -157,5 +157,3 @@ Example: if a user pays a paywall with 6_HR, whenever they click on the paywall 
 >>> Node.decodeinvoice('lnbc690 ...')
 {"destination" : "", "payment_hash" : "", "num_satoshis" : "69" ... }
 ```
-
-Thanks <3
