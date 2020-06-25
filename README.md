@@ -62,11 +62,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 ('waka_ ...', 'waki_ ...', 'wakr_ ...', 'wal_ ...')
 >>>
 >>> Wallet.importkeys(('waka_ ...', 'waki_ ...', 'wakr_ ...', 'wal_ ...'))
-('waka_ ...', 'waki_ ...', 'wakr_ ...', 'wal_ ...')
 >>>
 >>> Wallet.importkeys({'blabla1' : 'waka_ ...', 'blabla2' : 'waki_ ...', 'blabla3' : 'wakr_ ...', 'blabla4' , 'wal_ ...'})
-('waka_ ...', 'waki_ ...', 'wakr_ ...', 'wal_ ...')
->>>
 ```
 
 - Returns info about the wallet, including balance
@@ -93,13 +90,15 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ```python
 >>> Wallet.payinvoice('lnbc....', passthru={'message' : 'payment to Aunt Maria.'})
+
 {"id": "wtx_dYeWXmMTrP1VH8XZMOhXdE1", ...}
+
 ```
 
 - Transfer satoshis from source wallet to destination wallet.
 
 ```python
->>> Wallet.transfer('wal_ ...', 1, memo='Transferring to another account.', passthru={'in' : 'Me', 'to' : 'Maria.'}):
+>>> Wallet.transfer(dest_wallet_id, amount, memo='Transferring to another account.', passthru={'in' : 'Me', 'to' : 'Maria.'}):
 {"wtx_transfer_in": { ... } ...}
 ```
 
@@ -107,7 +106,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ```python
 >>> lnurlwithdraw(50000, passthru={'message' : 'I need to withdraw to buy vegetables.'}, memo='Withdrawing my dear money.'):
-{"lnurl":"LNURL ... VGhlcmUncyBub3RoaW5nIGhlcmUgOik=", "ott":"Y241"}
+
+{
+    "lnurl":"LNURL ... VGhlcmUncyBub3RoaW5nIGhlcmUgOik="
+    "ott":"Y4J9"
+}
 >>> # Do not read what is in base64 :(
 ```
 
@@ -116,8 +119,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 - Get Invoice Status.
 
 ```python
->>> Lntx = Lnpay.Lntx()
->>> Lntx.status('lntx_82yve ...')
+>>> Node = Lnpay.Lntx()
+>>> Node.status('lntx_82yve ...')
 {"id" : "lntx_82yveCX2Wn0EkkdyzvyBv", "created_at" : 1577657602, "updated_at" : 1577657602 ...}
 
 ```
@@ -138,15 +141,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 These rules control the short link functionality. They work by using a cookie to keep track of the user. 
 Example: if a user pays a paywall with 6_HR, whenever they click on the paywall link - they are redirected to the destination automatically until after 6 Hours from original purchase time. At that point they are presented with the paywall again.
 
-| Link Expiry   | Description   |
-| ------------- |:-------------:|
-| IMMEDIATE     | Payer must pay every time |
-| 6_HR          | Payer has access for 6 hours |
-| 1_D           | Payer has access for 1 Day |
-| 30_D          | Payer has access for 30 Days |
-| 90_D          | Payer has access for 90 Days |
-| ONE_TIME_USE  | Once the link is paid one time by anyone, it is no longer valid for anyone|
-
+| Link Expiry | Description |
+| : ------------- : | : ------------- :|
+|IMMEDIATE| Payer must pay every time
+|6_HR| Payer has access for 6 hours|
+|1_D| Payer has access for 1 Day|
+|30_D| Payer has access for 30 Days|
+|90_D| Payer has access for 90 Days|
+|ONE_TIME_USE| Once the link is paid one time by anyone, it is no longer valid for anyone|
 
 #### Node
 
