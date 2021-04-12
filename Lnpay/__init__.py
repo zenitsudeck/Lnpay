@@ -7,7 +7,7 @@ logged = [{'status' : None}]
 
 def Push(path, method='GET', data=None, auth=None):
 
-    url = 'https://lnpay.co/v1' + path
+    url = 'https://api.lnpay.co/v1' + path
 
     if method == 'GET':
         return requests.get(url, data=data, auth=auth)
