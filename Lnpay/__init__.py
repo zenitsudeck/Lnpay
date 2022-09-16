@@ -10,10 +10,10 @@ def Push(path, method='GET', data=None, auth=None):
     url = 'https://api.lnpay.co/v1' + path
 
     if method == 'GET':
-        return requests.get(url, data=data, auth=auth)
+        return requests.get(url, json=data, auth=auth)
 
     if method == 'POST':
-        return requests.post(url, data=data, auth=auth)
+        return requests.post(url, json=data, auth=auth)
 
 class Public:
 
