@@ -172,6 +172,22 @@ class Wallet:
 
             return Push(query, auth=self.auth).json()
 
+    def paytolnaddress(self, lnaddress: str, amount: int, comment: str = ""):
+        query = "/lnurlp/probe/{0}".format(lnaddress)
+        probe = Push(query, auth=self.auth).json()
+        try:
+            callback = probe["callback"]
+            minSendable = probe["minSendable"]
+            maxSendable = probe["maxSendable"]
+        except KeyError as keyError:
+            raise ValueError("Invalid Lightning Address!")
+        if amount < minSendable or amount > maxSendable:
+            raise ValueError("Value out of range: {0} - {1}".format(minSendable,
+                                                                    maxSendable))
+
+        response = requests.get(callback, params={"amount": amount, "comment": comment})
+        self.payinvoice(response.json()["pr"])
+
 class Lntx:
 
     def __init__(self):
